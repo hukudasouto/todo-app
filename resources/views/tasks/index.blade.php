@@ -6,7 +6,7 @@
         <label class="w-full max-w-3xl mx-auto">
             <input
                 class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                placeholder="洗濯物をする..." type="text" name="task_name" />
+                placeholder="洗濯物をする..." type="text" name="task_name" category="category-select" />
             @error('task_name')
             <div class="mt-3">
                 <p class="text-red-500">
@@ -14,11 +14,11 @@
                 </p>
             </div>
             @enderror
-            <select name="item">
-                <option value="goal">目標</option>
-                <option value="hobby">趣味</option>
-                <option value="work">仕事</option>
-                <option value="daily">日課</option>
+            <select name="category-select">
+                <option value="目標">目標</option>
+                <option value="趣味">趣味</option>
+                <option value="仕事">仕事</option>
+                <option value="日課">日課</option>
             </select>
         </label>
 
@@ -41,6 +41,8 @@
                     <tr>
                         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
                             タスク</th>
+                        <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
+                            カテゴリー</th>
                         <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                             <span class="sr-only">Actions</span>
                         </th>
@@ -52,6 +54,11 @@
                         <td class="px-3 py-4 text-sm text-gray-500">
                             <div>
                                 {{ $item->name }}
+                            </div>
+                        </td>
+                        ]<td class="px-3 py-4 text-sm text-gray-500">
+                            <div>
+                                {{ $item->category}}
                             </div>
                         </td>
                         <td class="p-0 text-right text-sm font-medium">

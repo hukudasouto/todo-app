@@ -43,7 +43,7 @@ class TaskController extends Controller
 
     //モデル->カラム名 = 値 で、データを割り当てる
     $task->name = $request->input('task_name');
-
+    $task->category = $request->input('category');
     //データベースに保存
     $task->save();
 
@@ -78,6 +78,7 @@ class TaskController extends Controller
     if ($request->status === null) {
       $rules = [
         'task_name' => 'required|max:100',
+
       ];
 
       $messages = ['required' => '必須項目です', 'max' => '100文字以下にしてください。'];
@@ -90,6 +91,7 @@ class TaskController extends Controller
 
       //モデル->カラム名 = 値 で、データを割り当てる
       $task->name = $request->input('task_name');
+      $task->category = $request->input('category');
 
       //データベースに保存
       $task->save();
